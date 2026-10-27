@@ -347,6 +347,7 @@ class VertexTransactionBuilder
         try {
             $product = $this->productRepository
                 ->search(new Criteria([$productId]), $context->getContext())
+                ->getEntities()
                 ->get($productId);
 
             return $product instanceof ProductEntity ? $product : null;
